@@ -1,0 +1,26 @@
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+class Tax {
+	int qty = 0;
+	String prodName = null;
+	float price = 0.0f;
+	SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+	String Isbn=null;
+	boolean exempted = false;
+	float tax = 0.0f;
+	public Date date2;
+
+	void calculateSalesTax() {
+		float totalTax = 0.0f;
+		if (!exempted)
+			totalTax = .06f;
+		tax = totalTax * price;
+	}
+
+	public String toString() {
+		float p = price + tax;
+		return qty + " " + prodName + " at " + p;
+	}
+}
+
