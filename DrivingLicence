@@ -1,0 +1,42 @@
+import java.util.Scanner;
+public class DriverTest
+{
+
+	 public static void main(String[] args)
+	 {
+	  // accept keyboard input
+	   Scanner keyboard = new Scanner(System.in);
+
+	  System.out.println("Enter your answers below.\n");
+
+	  char[] answers = new char[20];
+
+	  // request an answer for each question
+	  for(int i = 0; i < answers.length; i++)
+	  {
+			// get input until input is valid
+			char input;
+
+			do
+			{
+				  System.out.print(i + 1 + ". ");
+
+				  // get character and make it upper case
+				  input = Character.toUpperCase(keyboard.next().charAt(0));
+			}
+			while(input < 'A' || input >'D');
+
+			// store answer
+			answers[i] = input;
+	  }
+
+	  // print output here
+	  DriverTest2 driver = new DriverTest2(answers) {};
+	  System.out.println();
+	  System.out.println("You "+(driver.passed()?"passed" : "did not pass") + ".\n");
+	  System.out.println("Correct: " + driver.totalCorrect() + "\n");
+	  System.out.println("Incorrect: " + driver.totalMissed() + "\n");
+	  System.out.println("Questions missed: " + driver.questionsMissed());
+	  
+  }
+}
